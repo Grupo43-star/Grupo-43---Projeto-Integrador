@@ -1,0 +1,1162 @@
+:root {
+  /* Cores */
+  --verde-escuro: #1f3b2f;
+  --verde-escuro-2: #2a4a3c;
+  --verde-medio: #2d5845; /* painel da marca sobre o fundo verde escuro */
+  --verde-claro: #e2e8df;
+  --verde-suave: #e8ede5;
+  --terracota: #b0644a;
+  --fundo: #f4f2ee;
+  --superficie: #fbfaf7;
+  --borda: #e3e0d8;
+  --texto: #1f2a24;
+  --texto-suave: #6b706a;
+  --erro-fundo: #f9ecea;
+  --erro-borda: #e8c4bd;
+  --erro-texto: #9a3b2c;
+
+  /* Tipografia */
+  --fonte-serif: 'Newsreader', Georgia, serif;
+  --fonte-sans: 'Manrope', system-ui, sans-serif;
+
+  --raio: 10px;
+  --sombra: 0 1px 2px rgba(31, 59, 47, 0.06);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Página ---------- */
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 48px 32px 64px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.page-header__titulo {
+  font-family: var(--fonte-serif);
+  font-weight: 500;
+  font-size: clamp(34px, 5vw, 46px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--verde-escuro);
+  margin: 6px 0 8px;
+}
+
+.page-header__descricao {
+  color: var(--texto-suave);
+  max-width: 560px;
+}
+
+/* "Voltar" das páginas internas (detalhe do pedido, do ponto): sempre no topo, acima do título */
+.voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: -8px 0 18px -8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
+
+.voltar:hover {
+  background: var(--verde-suave);
+}
+
+.voltar:hover svg {
+  transform: translateX(-2px);
+}
+
+.voltar svg {
+  transition: transform 0.15s;
+}
+
+/* ---------- Textos ---------- */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--terracota);
+}
+
+.eyebrow--simples::before {
+  display: none;
+}
+
+.titulo-secao {
+  font-family: var(--fonte-serif);
+  font-weight: 500;
+  font-size: 26px;
+  color: var(--verde-escuro);
+  letter-spacing: -0.01em;
+}
+
+.texto-suave {
+  color: var(--texto-suave);
+  font-size: 13px;
+}
+
+.texto-nota {
+  color: var(--texto-suave);
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+/* ---------- Botões e links ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 18px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  font-size: 13px;
+  transition: background 0.15s;
+}
+
+.btn--primario {
+  background: var(--verde-escuro);
+  color: #fff;
+}
+
+.btn--primario:hover {
+  background: var(--verde-escuro-2);
+}
+
+.btn--texto {
+  background: transparent;
+  color: var(--verde-escuro);
+}
+
+.btn--texto:hover {
+  text-decoration: underline;
+}
+
+.link-seta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
+
+.link-seta:hover svg {
+  transform: translateX(2px);
+}
+
+.link-seta svg {
+  transition: transform 0.15s;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 22px;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.card--row {
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.card--verde {
+  background: var(--verde-suave);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.card__topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card__titulo {
+  font-family: var(--fonte-serif);
+  font-weight: 500;
+  font-size: 21px;
+  color: var(--verde-escuro);
+}
+
+.card__citacao {
+  font-family: var(--fonte-serif);
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--verde-escuro);
+}
+
+.icon-circle {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--verde-claro);
+  color: var(--verde-escuro);
+}
+
+.icon-circle--sm {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-circle--lg {
+  width: 48px;
+  height: 48px;
+}
+
+.icon-circle--xl {
+  width: 64px;
+  height: 64px;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  color: var(--texto-suave);
+  background: var(--superficie);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 28px 16px 48px;
+  }
+
+  .page-header .icon-circle {
+    display: none;
+  }
+}
+
+/* ---------- Cores da coleta seletiva (CONAMA 275) ----------
+   Fundo claro + borda média + texto escuro da mesma cor,
+   para manter o contraste (principalmente no amarelo).
+   Uma classe por slug das categorias do back (GET /material-categories). */
+.tag--papel-e-papelao {
+  background: #e6eef9;
+  border-color: #9dbbe3;
+  color: #1d4f8c;
+}
+
+.tag--plastico {
+  background: #fbe7e2;
+  border-color: #eea595;
+  color: #a3321f;
+}
+
+.tag--vidro {
+  background: #e4f1e3;
+  border-color: #9cc99d;
+  color: #2b6a33;
+}
+
+.tag--metal {
+  background: #fcf2c8;
+  border-color: #e3c34f;
+  color: #6f5000;
+}
+
+.tag--pilhas-e-baterias {
+  background: #fdeedd;
+  border-color: #efb67a;
+  color: #93470b;
+}
+
+.tag--oleo-de-cozinha {
+  background: #f2e9df;
+  border-color: #c9a98a;
+  color: #6b4423;
+}
+
+.tag--eletronicos {
+  background: #f1e6f5;
+  border-color: #c9a2d8;
+  color: #6a1f86;
+}
+
+/* Categoria nova sem `color` válida no back (as com cor recebem estilo inline,
+   ver utils/corCategoria.ts). */
+.tag--nao-reciclavel,
+.tag--neutra {
+  background: #ecebe8;
+  border-color: #bdbab3;
+  color: #4d4b47;
+}
+
+/* ---------- Formulários ---------- */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formulario__linha {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.formulario__rodape {
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--texto-suave);
+}
+
+.formulario__rodape a {
+  font-weight: 700;
+  color: var(--verde-escuro);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo--inteiro {
+  grid-column: 1 / -1;
+}
+
+.campo__rotulo {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.campo__erro {
+  font-size: 12px;
+  color: var(--erro-texto);
+}
+
+.campo__ajuda {
+  font-size: 11.5px;
+  color: var(--texto-suave);
+}
+
+.input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--borda);
+  border-radius: 7px;
+  background: var(--superficie);
+  color: var(--texto);
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input::placeholder {
+  color: #9a9e97;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--verde-escuro);
+  box-shadow: 0 0 0 3px rgba(31, 59, 47, 0.12);
+}
+
+.input:disabled {
+  background: #eeece6;
+  color: var(--texto-suave);
+  cursor: not-allowed;
+}
+
+.input--erro,
+.input--erro:focus {
+  border-color: var(--erro-texto);
+  box-shadow: 0 0 0 3px rgba(154, 59, 44, 0.1);
+}
+
+select.input {
+  cursor: pointer;
+}
+
+.input-com-botao {
+  position: relative;
+  display: block;
+}
+
+.input-com-botao .input {
+  padding-right: 44px;
+}
+
+.input-com-botao__botao {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--texto-suave);
+}
+
+.input-com-botao__botao:hover {
+  color: var(--verde-escuro);
+}
+
+/* Input com ícone à esquerda (ex.: lupa da busca) */
+.input-com-icone {
+  position: relative;
+  display: block;
+}
+
+.input-com-icone .input {
+  padding-left: 40px;
+}
+
+.input-com-icone__icone {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: var(--texto-suave);
+  pointer-events: none;
+}
+
+/* Linha "N itens encontrados" + "Limpar filtros" abaixo dos filtros */
+.resumo-filtros {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 32px;
+  margin: 18px 0 14px;
+}
+
+.resumo-filtros__limpar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
+
+.resumo-filtros__limpar:hover {
+  background: var(--verde-suave);
+}
+
+/* Texto só para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Botões extras */
+.btn {
+  justify-content: center;
+}
+
+.btn--pequeno {
+  padding: 8px 12px;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.btn--largo {
+  width: 100%;
+  height: 46px;
+}
+
+.btn--contorno {
+  background: transparent;
+  border-color: var(--borda);
+  color: var(--verde-escuro);
+}
+
+.btn--contorno:hover {
+  background: var(--superficie);
+  border-color: #cfcbc1;
+}
+
+/* Janela modal (<dialog> com showModal): excluir a conta, outro endereço */
+.janela {
+  width: min(520px, calc(100vw - 32px));
+  max-height: calc(100dvh - 48px);
+  padding: 0;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+  color: var(--texto);
+  box-shadow: 0 20px 50px rgba(31, 59, 47, 0.25);
+}
+
+.janela--larga {
+  width: min(720px, calc(100vw - 32px));
+}
+
+.janela::backdrop {
+  background: rgba(20, 32, 26, 0.55);
+}
+
+.janela__caixa {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 24px 24px;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.janela__topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.janela__titulo {
+  font-family: var(--fonte-serif);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--verde-escuro);
+}
+
+.janela__fechar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  margin: -4px -8px 0 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.janela__fechar:hover {
+  background: var(--verde-suave);
+}
+
+.janela__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+/* Formulários dentro das janelas dos painéis (components/Janela.tsx) */
+.janela__campos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.janela__campos--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.janela__texto {
+  min-height: 84px;
+  resize: vertical;
+  font: inherit;
+}
+
+.janela__texto--alto {
+  min-height: 140px;
+}
+
+.janela__legenda {
+  margin-right: auto;
+}
+
+.janela__lista {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Tela que não é do papel da conta (components/SomentePapeis.tsx) */
+.acesso {
+  align-items: flex-start;
+}
+
+.acesso__texto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.acesso__texto .btn {
+  margin-top: 6px;
+}
+
+@media (max-width: 640px) {
+  .janela__caixa {
+    padding: 18px;
+  }
+
+  .janela__campos,
+  .janela__campos--3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .janela__acoes {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .janela__acoes .btn {
+    width: 100%;
+  }
+}
+
+/* Região da coleta seletiva de um endereço salvo (Perfil e Solicitações) */
+.endereco-salvo__regiao {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #2b6a33;
+}
+
+.endereco-salvo__regiao svg {
+  display: inline;
+  margin-right: 4px;
+  vertical-align: -2px;
+}
+
+.endereco-salvo__regiao--fora {
+  color: var(--erro-texto);
+}
+
+.endereco-salvo__regiao a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Ação que não tem volta (excluir a conta) */
+.btn--perigo {
+  background: var(--erro-texto);
+  color: #fff;
+}
+
+.btn--perigo:hover {
+  background: #7d2f23;
+}
+
+.btn--texto-perigo {
+  background: transparent;
+  color: var(--erro-texto);
+}
+
+.btn--texto-perigo:hover {
+  text-decoration: underline;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.girando {
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Alertas */
+.alerta {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid;
+  font-size: 13px;
+}
+
+.alerta svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.alerta--erro {
+  background: var(--erro-fundo);
+  border-color: var(--erro-borda);
+  color: var(--erro-texto);
+}
+
+.alerta--info {
+  background: var(--verde-suave);
+  border-color: transparent;
+  color: var(--verde-escuro);
+}
+
+.alerta--sucesso {
+  background: #e4f1e3;
+  border-color: #b9dbb9;
+  color: #2b6a33;
+}
+
+@media (max-width: 640px) {
+  .formulario__linha {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Endereço (CEP, rua, número...) ---------- */
+.endereco {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.endereco__cep {
+  grid-column: span 2;
+}
+
+.endereco__rua {
+  grid-column: 1 / span 4;
+}
+
+.endereco__numero {
+  grid-column: span 2;
+}
+
+.endereco__complemento,
+.endereco__bairro {
+  grid-column: span 3;
+}
+
+.endereco__cidade {
+  grid-column: span 4;
+}
+
+.endereco__uf {
+  grid-column: span 2;
+}
+
+.endereco__ok {
+  color: #2b6a33;
+}
+
+.endereco__link {
+  align-self: flex-start;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.endereco__link:hover {
+  color: var(--verde-escuro);
+}
+
+@media (max-width: 640px) {
+  .endereco {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px 12px;
+  }
+
+  .endereco__cep,
+  .endereco__rua,
+  .endereco__bairro {
+    grid-column: 1 / -1;
+  }
+
+  /* Número + Complemento e Cidade + UF lado a lado */
+  .endereco__numero,
+  .endereco__uf {
+    grid-column: span 1;
+  }
+
+  .endereco__complemento,
+  .endereco__cidade {
+    grid-column: span 2;
+  }
+}
+
+/* Campo obrigatório: asterisco vermelho depois do nome (ex.: CEP*) */
+.campo__rotulo--obrigatorio::after {
+  content: '*';
+  margin-left: 1px;
+  color: var(--erro-texto);
+}
+
+.legenda-obrigatorio {
+  font-size: 12px;
+  color: var(--texto-suave);
+}
+
+.legenda-obrigatorio span {
+  color: var(--erro-texto);
+}
+
+/* Campo somente leitura (ex.: preenchido pelo CEP) */
+.input:read-only:not(select) {
+  background: #eeece6;
+  color: var(--texto-suave);
+  cursor: default;
+}
+
+.input:read-only:focus {
+  border-color: var(--borda);
+  box-shadow: none;
+}
+
+.campo__rotulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.campo__cadeado {
+  order: 2; /* depois do asterisco */
+  margin-left: 6px;
+  color: var(--texto-suave);
+}
+
+.endereco__aviso {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: -6px 0 -4px;
+}
+
+/* ---------- Opções em cartão (checkbox e radio): Solicitações e Cadastro ---------- */
+.escolhas {
+  display: grid;
+  gap: 10px;
+}
+
+.escolhas--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.escolha {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: var(--superficie);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.escolha:hover {
+  border-color: #c7c2b6;
+}
+
+.escolha--marcada,
+.escolha--marcada:hover {
+  border-color: var(--verde-escuro);
+  background: var(--verde-suave);
+}
+
+/* O input fica invisível, mas continua acessível pelo teclado */
+.escolha__input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+
+.escolha:has(.escolha__input:focus-visible) {
+  outline: 2px solid var(--verde-escuro);
+  outline-offset: 2px;
+}
+
+.escolha__icone {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--verde-escuro);
+}
+
+.escolha__texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.escolha__texto strong {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.escolha__texto small {
+  font-size: 12px;
+  color: var(--texto-suave);
+  line-height: 1.4;
+}
+
+.escolha__check {
+  flex-shrink: 0;
+  color: var(--verde-escuro);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.escolha--marcada .escolha__check {
+  opacity: 1;
+}
+
+/* Grupo de opções com legenda (fieldset sem a moldura padrão) */
+.grupo-opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.grupo-opcoes legend {
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+/* Caixa de seleção simples (ex.: "Sem número") */
+.caixa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  font-size: 12.5px;
+  color: var(--texto-suave);
+  cursor: pointer;
+}
+
+.caixa input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--verde-escuro);
+  cursor: pointer;
+}
+
+/* ---------- Selo decorativo (hero do Início) ---------- */
+.selo {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: grid;
+  place-items: center;
+}
+
+.selo__anel {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--borda);
+}
+
+.selo__anel--externo {
+  inset: 0;
+}
+
+.selo__anel--interno {
+  inset: 16px;
+  border-style: dashed;
+}
+
+.selo__ponto {
+  position: absolute;
+  top: 18px;
+  right: 30px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--terracota);
+}
+
+.selo__texto {
+  position: absolute;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.selo__texto--topo {
+  top: 28px;
+}
+
+.selo__texto--base {
+  bottom: 28px;
+}
+
+/* ---------- Mapa do endereço (components/MapaDoEndereco.tsx) ---------- */
+.mapa-endereco__moldura {
+  position: relative;
+  isolation: isolate; /* as camadas do Leaflet (z-index até 1000) não passam por cima da topbar */
+  height: 260px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--verde-suave);
+}
+
+.mapa-endereco__moldura--erro {
+  border-color: var(--erro-texto);
+}
+
+.mapa-endereco__mapa {
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+}
+
+.mapa-endereco__mapa:focus-visible {
+  outline: 2px solid var(--verde-escuro);
+  outline-offset: -3px;
+}
+
+/* Pino fixo no centro: a ponta marca o local */
+.mapa-endereco__pino {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1000;
+  display: flex;
+  transform: translate(-50%, -100%);
+  color: var(--verde-escuro);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 2px rgb(0 0 0 / 0.3));
+}
+
+.mapa-endereco__pino svg {
+  fill: var(--terracota);
+}
+
+.mapa-endereco__pino svg circle {
+  fill: var(--superficie);
+}
+
+.mapa-endereco__vazio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 72px;
+  padding: 16px;
+  border: 1px dashed var(--borda);
+  border-radius: 12px;
+  background: var(--fundo);
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+.mapa-endereco__ajuda {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.mapa-endereco__ajuda svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.mapa-endereco__ajuda--alerta {
+  color: #7a5b12;
+}
+
+@media (max-width: 640px) {
+  .mapa-endereco__moldura {
+    height: 220px;
+  }
+}

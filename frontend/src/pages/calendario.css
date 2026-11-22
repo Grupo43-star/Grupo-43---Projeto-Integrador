@@ -1,0 +1,487 @@
+/* ---------- Filtros ---------- */
+.calendario__filtros {
+  align-items: stretch;
+  gap: 12px;
+  padding: 18px;
+}
+
+.calendario__meu-bairro {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 6px 8px;
+  margin: -4px 0 -6px -8px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
+
+.calendario__meu-bairro:hover {
+  background: var(--verde-suave);
+}
+
+/* ---------- Seções ---------- */
+.calendario__secao + .calendario__secao {
+  margin-top: 36px;
+}
+
+.calendario__cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-bottom: 14px;
+}
+
+.calendario__cabecalho .texto-suave {
+  margin-top: 2px;
+}
+
+.calendario__navegacao {
+  display: flex;
+  gap: 8px;
+}
+
+.calendario__seta {
+  padding: 7px 9px;
+}
+
+/* ---------- Dias da semana ---------- */
+.calendario__dias {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.calendario__dia {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 16px 18px;
+}
+
+.calendario__dia--hoje {
+  border-color: var(--verde-escuro);
+  box-shadow: inset 3px 0 0 var(--verde-escuro), var(--sombra);
+}
+
+/* Bloco da data: "Qui / 19 / nov" */
+.calendario__data,
+.calendario__unica-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 58px;
+  line-height: 1.1;
+  color: var(--verde-escuro);
+}
+
+.calendario__dia-semana {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.calendario__dia-numero {
+  font-family: var(--fonte-serif);
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.calendario__mes {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.calendario__hoje {
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--verde-escuro);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.calendario__entradas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 8px;
+}
+
+.calendario__entrada {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: var(--fundo);
+  font-size: 13px;
+}
+
+.calendario__entrada--extra {
+  border-color: #b9cdb4;
+  background: var(--verde-suave);
+}
+
+.calendario__entrada--fechado {
+  border-style: dashed;
+  background: transparent;
+}
+
+.calendario__horario {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
+
+.calendario__entrada--fechado .calendario__horario {
+  color: var(--erro-texto);
+}
+
+.calendario__ponto {
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.calendario__ponto:hover {
+  color: var(--verde-escuro);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.calendario__local {
+  font-size: 12px;
+  color: var(--texto-suave);
+}
+
+.calendario__selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 4px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--terracota);
+}
+
+.calendario__entrada--fechado .calendario__selo {
+  color: var(--texto-suave);
+}
+
+.calendario__sem {
+  flex: 1;
+  align-self: center;
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+/* ---------- Datas únicas ---------- */
+.calendario__unicas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.calendario__unica {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.calendario__unica-data {
+  padding: 10px 0;
+  border-radius: 10px;
+  background: var(--verde-suave);
+}
+
+.calendario__unica--fechado .calendario__unica-data {
+  background: var(--erro-fundo);
+  color: var(--erro-texto);
+}
+
+.calendario__unica-corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.calendario__tipo {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracota);
+}
+
+.calendario__tipo--fechado {
+  color: var(--erro-texto);
+}
+
+.calendario__unica-info {
+  display: flex;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--texto);
+}
+
+.calendario__unica-info svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--texto-suave);
+}
+
+.calendario__materiais {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.calendario__materiais .tag {
+  display: inline-block;
+}
+
+.calendario__materiais .tag:hover {
+  filter: brightness(0.95);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.calendario__sem-unicas {
+  align-items: center;
+  text-align: center;
+}
+
+/* ---------- Estado vazio ---------- */
+.calendario__vazio {
+  align-items: center;
+  text-align: center;
+  padding: 40px 22px;
+}
+
+.calendario__vazio .texto-suave {
+  max-width: 420px;
+}
+
+.calendario__vazio-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.calendario__filtros .campo {
+  max-width: 420px;
+}
+
+/* Sem a linha de resumo (nenhum bairro escolhido), o card de baixo não encosta no filtro */
+.calendario__filtros + .card,
+.calendario__filtros + .alerta {
+  margin-top: 18px;
+}
+
+.calendario__alerta {
+  margin-bottom: 16px;
+}
+
+.calendario__alerta .btn {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Ao trocar de bairro, o calendário anterior fica esmaecido até o novo chegar */
+.calendario__conteudo--atualizando {
+  opacity: 0.55;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+/* ---------- Toda semana ---------- */
+.calendario__fixos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.calendario__fixo {
+  gap: 10px;
+}
+
+.calendario__fixo-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.calendario__periodo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--verde-suave);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+  white-space: nowrap;
+}
+
+.calendario__observacao {
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+/* Dias sem coleta seletiva ficam mais discretos */
+.calendario__dia--vazio {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.calendario__dia--vazio.calendario__dia--hoje {
+  box-shadow: inset 3px 0 0 var(--verde-escuro);
+}
+
+.calendario__dia--vazio .calendario__dia-numero {
+  font-size: 24px;
+}
+
+/* ---------- Bairros atendidos ---------- */
+.calendario__atendidos-titulo {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.calendario__atendidos {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 560px;
+}
+
+.calendario__regiao-nome {
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.calendario__regiao-nome span {
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+
+.calendario__bairros {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.calendario__bairro {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  background: var(--fundo);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--verde-escuro);
+}
+
+.calendario__bairro:hover {
+  border-color: var(--verde-escuro);
+  background: var(--verde-suave);
+}
+
+@media (max-width: 760px) {
+  .calendario__unicas {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .calendario__dia {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* No celular a data fica numa linha: "QUI 19 nov  Hoje" */
+  .calendario__data {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+    width: auto;
+  }
+
+  .calendario__dia-numero {
+    font-size: 24px;
+  }
+
+  .calendario__hoje {
+    margin-top: 0;
+    align-self: center;
+  }
+
+  .calendario__entradas {
+    width: 100%;
+  }
+
+  /* Dia sem coleta: data e aviso na mesma linha */
+  .calendario__dia--vazio {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .calendario__dia--vazio .calendario__sem {
+    flex: 1 1 160px;
+  }
+
+  .calendario__vazio-acoes,
+  .calendario__vazio-acoes .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,433 @@
+/* Páginas internas de detalhe: pedido (/solicitacoes/:id) e ponto de coleta (/pontos/:id) */
+
+/* ---------- Comum ---------- */
+.detalhe__cabecalho {
+  margin-bottom: 24px;
+}
+
+.detalhe__cabecalho-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+
+.detalhe__cabecalho .page-header__titulo {
+  font-size: clamp(30px, 4.4vw, 40px);
+  overflow-wrap: anywhere;
+}
+
+.detalhe__linha {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--texto-suave);
+}
+
+.detalhe__linha svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.detalhe__linha--forte {
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
+
+.detalhe__atualizando {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--texto-suave);
+}
+
+.detalhe__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 16px;
+  align-items: start;
+}
+
+.detalhe__principal,
+.detalhe__lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.detalhe__secao {
+  align-items: stretch;
+  gap: 12px;
+}
+
+.detalhe__titulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fonte-serif);
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--verde-escuro);
+}
+
+.detalhe__titulo svg {
+  flex-shrink: 0;
+  color: var(--texto-suave);
+}
+
+.detalhe__subtitulo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--borda);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.detalhe__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.detalhe__vazio {
+  align-items: center;
+  text-align: center;
+  padding: 40px 22px;
+}
+
+.detalhe__vazio .texto-suave {
+  max-width: 440px;
+}
+
+.detalhe__erro {
+  margin-bottom: 16px;
+}
+
+.detalhe__erro .btn {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.detalhe__carregando {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detalhe__convite {
+  align-items: flex-start;
+}
+
+.detalhe__convite > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* ---------- Pedido ---------- */
+/* Computador: situação e histórico à esquerda, coleta e materiais na lateral.
+   Celular: situação, depois coleta/materiais, depois o histórico. */
+.detalhe-pedido__grid {
+  grid-template-areas:
+    'situacao lateral'
+    'linha lateral';
+  grid-template-rows: auto 1fr;
+}
+
+.detalhe-pedido__situacao {
+  grid-area: situacao;
+}
+
+.detalhe-pedido__lateral {
+  grid-area: lateral;
+}
+
+.detalhe-pedido__linha {
+  grid-area: linha;
+}
+
+.detalhe-pedido__nota {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.detalhe-pedido__dados {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+}
+
+.detalhe-pedido__dados dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+.detalhe-pedido__dados dd {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.detalhe-pedido__dados dd strong {
+  font-family: var(--fonte-serif);
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--verde-escuro);
+}
+
+.detalhe-pedido__itens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detalhe-pedido__itens li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.detalhe-pedido__observacoes {
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+/* Linha do tempo: o mais recente em cima */
+.linha-tempo {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.linha-tempo__item {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  padding-bottom: 18px;
+}
+
+.linha-tempo__item:last-child {
+  padding-bottom: 0;
+}
+
+/* Traço que liga os pontos */
+.linha-tempo__item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 16px;
+  bottom: 0;
+  width: 2px;
+  background: var(--borda);
+}
+
+.linha-tempo__ponto {
+  position: relative;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+  border: 2px solid var(--superficie);
+  border-radius: 50%;
+  background: #b9bcb5;
+  box-shadow: 0 0 0 1px var(--borda);
+}
+
+.linha-tempo__ponto--solicitada,
+.linha-tempo__ponto--em-analise {
+  background: #d9b336;
+}
+
+.linha-tempo__ponto--agendada,
+.linha-tempo__ponto--em-rota,
+.linha-tempo__ponto--concluida {
+  background: #3c8a46;
+}
+
+.linha-tempo__ponto--recusada {
+  background: var(--erro-texto);
+}
+
+.linha-tempo__item--atual .linha-tempo__ponto {
+  box-shadow: 0 0 0 3px var(--verde-claro);
+}
+
+.linha-tempo__conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.linha-tempo__titulo {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.linha-tempo__item:not(.linha-tempo__item--atual) .linha-tempo__titulo {
+  font-weight: 600;
+}
+
+.linha-tempo__meta {
+  font-size: 12px;
+  color: var(--texto-suave);
+}
+
+.linha-tempo__comentario {
+  margin-top: 4px;
+  padding: 8px 12px;
+  border-left: 3px solid var(--verde-claro);
+  border-radius: 0 6px 6px 0;
+  background: var(--fundo);
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Ponto de coleta ---------- */
+.detalhe-ponto__aceita {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.detalhe-ponto__aceita li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--borda);
+}
+
+.detalhe-ponto__aceita li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.detalhe-ponto__horarios {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.detalhe-ponto__horarios th,
+.detalhe-ponto__horarios td {
+  padding: 7px 8px;
+  border-top: 1px solid var(--borda);
+  text-align: left;
+  vertical-align: top;
+}
+
+.detalhe-ponto__horarios tr:first-child th,
+.detalhe-ponto__horarios tr:first-child td {
+  border-top: 0;
+}
+
+.detalhe-ponto__horarios th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.detalhe-ponto__horarios td {
+  text-align: right;
+}
+
+/* Um horário por linha (ex.: sábado 08:00 - 12:00 e 13:00 - 16:00) */
+.detalhe-ponto__faixa {
+  display: block;
+  white-space: nowrap;
+}
+
+.detalhe-ponto__fechado {
+  color: var(--texto-suave);
+}
+
+.detalhe-ponto__hoje th,
+.detalhe-ponto__hoje td {
+  background: var(--verde-suave);
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
+
+.detalhe-ponto__selo {
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--verde-escuro);
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  vertical-align: 1px;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 960px) {
+  .detalhe__grid,
+  .detalhe-pedido__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detalhe-pedido__grid {
+    grid-template-areas:
+      'situacao'
+      'lateral'
+      'linha';
+    grid-template-rows: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .detalhe__convite {
+    flex-direction: column;
+    padding: 22px;
+  }
+
+  .detalhe__acoes .btn {
+    flex: 1 1 100%;
+  }
+
+  .detalhe-ponto__aceita li {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .detalhe-ponto__aceita li .texto-suave {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .detalhe-ponto__aceita li .link-seta {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+}

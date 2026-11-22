@@ -1,0 +1,257 @@
+/* Página inteira em verde escuro, com o cartão centralizado */
+.auth {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 24px 48px;
+  background: var(--verde-escuro);
+}
+
+/* Anéis decorativos no fundo */
+.auth__anel {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.auth__anel--1 {
+  width: 620px;
+  height: 620px;
+  top: -260px;
+  right: -180px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  outline: 1px dashed rgba(255, 255, 255, 0.06);
+  outline-offset: 56px;
+}
+
+.auth__anel--2 {
+  width: 420px;
+  height: 420px;
+  bottom: -220px;
+  left: -140px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.auth__voltar {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #c9d5cc;
+  transition: color 0.15s;
+}
+
+.auth__voltar:hover {
+  color: #fff;
+}
+
+/* Cartão */
+.auth__cartao {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 100%);
+  min-height: 600px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--fundo);
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Painel da marca (verde médio, para destacar do fundo) */
+.auth__marca {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  background: var(--verde-medio);
+  color: #e8ede5;
+  overflow: hidden;
+}
+
+/* Folha/arco decorativo atrás do logo */
+.auth__marca::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -58%);
+}
+
+.auth__marca-centro {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.auth__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 26px;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.auth__slogan {
+  font-family: var(--fonte-serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.3;
+  color: #dbe5dd;
+  max-width: 300px;
+}
+
+.auth__beneficios {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 20px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 13.5px;
+  color: #d3ddd5;
+}
+
+.auth__beneficios li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Formulário */
+.auth__conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 56px;
+}
+
+.auth__titulo {
+  font-family: var(--fonte-serif);
+  font-weight: 500;
+  font-size: clamp(30px, 3.5vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--verde-escuro);
+  margin: 12px 0 10px;
+}
+
+.auth__descricao {
+  font-size: 14px;
+  margin-bottom: 26px;
+}
+
+/* Tablet: o painel da marca vira uma faixa no topo do cartão */
+@media (max-width: 860px) {
+  .auth__cartao {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    max-width: 520px;
+  }
+
+  .auth__marca {
+    padding: 22px 24px;
+  }
+
+  .auth__marca::after,
+  .auth__slogan,
+  .auth__beneficios {
+    display: none;
+  }
+
+  .auth__marca-centro {
+    align-items: flex-start;
+  }
+
+  .auth__logo {
+    font-size: 21px;
+  }
+
+  .auth__conteudo {
+    padding: 32px 28px 36px;
+  }
+}
+
+/* Celular: sem margens, cartão ocupa a tela */
+@media (max-width: 520px) {
+  .auth {
+    padding: 56px 12px 16px;
+    justify-content: flex-start;
+  }
+
+  .auth__voltar {
+    top: 18px;
+    left: 16px;
+  }
+
+  .auth__conteudo {
+    padding: 28px 20px 32px;
+  }
+}
+
+/* "Esqueci minha senha" colado ao campo de senha, à direita */
+.auth__esqueci {
+  margin-top: -8px;
+  text-align: right;
+  font-size: 13px;
+}
+
+.auth__esqueci a,
+.auth__conteudo .alerta a {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.auth__esqueci a {
+  color: var(--verde-escuro);
+}
+
+/* Ação em forma de link dentro de um texto ("Enviar de novo") */
+.auth__link-botao {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 700;
+  color: var(--verde-escuro);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.auth__link-botao:disabled {
+  color: var(--texto-suave);
+  cursor: default;
+}
+
+.auth__conteudo .alerta:focus {
+  outline: 2px solid var(--verde-escuro);
+  outline-offset: 2px;
+}

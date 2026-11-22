@@ -1,0 +1,324 @@
+/* ---------- Filtros ---------- */
+.pontos__filtros {
+  align-items: stretch;
+  gap: 0;
+  padding: 18px;
+}
+
+.pontos__campos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.pontos__localizacao {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--borda);
+}
+
+.pontos__localizacao .btn--contorno {
+  background: var(--verde-suave);
+  border-color: var(--borda);
+}
+
+.pontos__localizacao .btn--contorno:hover {
+  background: var(--verde-claro);
+}
+
+.pontos__localizacao-ativa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--verde-escuro);
+}
+
+.pontos__meu-bairro {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
+
+.pontos__meu-bairro:hover {
+  background: var(--verde-suave);
+}
+
+.pontos__alerta {
+  margin-top: 16px;
+}
+
+.pontos__alerta .btn {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Caixa "Só pontos abertos agora": alinhada com os campos (abaixo do rótulo) */
+.pontos__abertos {
+  align-self: start;
+  margin-top: 31px;
+  min-height: 42px;
+  align-items: center;
+}
+
+/* ---------- Lista ---------- */
+.pontos__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.pontos__card {
+  align-items: stretch;
+  gap: 14px;
+}
+
+.pontos__tipo {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terracota);
+}
+
+.pontos__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+.pontos__status::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b9bcb5;
+}
+
+.pontos__status--aberto {
+  color: #2b6a33;
+}
+
+.pontos__status--aberto::before {
+  background: #3c8a46;
+}
+
+.pontos__endereco,
+.pontos__distancia,
+.pontos__cooperativa {
+  display: flex;
+  gap: 7px;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+.pontos__endereco svg,
+.pontos__distancia svg,
+.pontos__cooperativa svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.pontos__cooperativa {
+  margin-top: 4px;
+  font-size: 12.5px;
+}
+
+.pontos__orientacoes {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--verde-suave);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--texto);
+}
+
+.pontos__orientacoes svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--verde-escuro);
+}
+
+.pontos__distancia {
+  margin-top: 4px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
+
+.pontos__bloco {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.pontos__rotulo {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.pontos__materiais {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pontos__materiais .tag {
+  display: inline-block;
+  transition: filter 0.15s;
+}
+
+.pontos__materiais .tag:hover {
+  filter: brightness(0.95);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Material escolhido no filtro fica em destaque */
+.tag--destaque {
+  font-weight: 700;
+  box-shadow: 0 0 0 2px currentColor;
+  border-color: transparent;
+}
+
+.pontos__agenda {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.pontos__agenda li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pontos__agenda svg {
+  color: var(--texto-suave);
+}
+
+.pontos__agenda-dias {
+  min-width: 92px;
+  font-weight: 600;
+}
+
+.pontos__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px 14px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--borda);
+}
+
+.pontos__telefone {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--texto-suave);
+}
+
+.pontos__telefone:hover {
+  color: var(--verde-escuro);
+  text-decoration: underline;
+}
+
+/* Lista sendo atualizada depois de trocar um filtro */
+.pontos__lista--atualizando {
+  opacity: 0.55;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.pontos__mais {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* ---------- Estado vazio ---------- */
+.pontos__vazio {
+  align-items: center;
+  text-align: center;
+  padding: 40px 22px;
+}
+
+.pontos__vazio .texto-suave {
+  max-width: 420px;
+}
+
+.pontos__vazio-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media (max-width: 1100px) {
+  .pontos__campos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .pontos__lista {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .pontos__campos {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pontos__meu-bairro {
+    margin-left: 0;
+  }
+
+  .pontos__abertos {
+    margin-top: 0;
+    min-height: 0;
+  }
+
+  .pontos__vazio-acoes,
+  .pontos__vazio-acoes .btn {
+    width: 100%;
+  }
+}

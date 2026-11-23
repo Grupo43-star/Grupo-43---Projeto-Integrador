@@ -1,6 +1,6 @@
 # Grupo-43---Projeto Integrador: Desenvolvimento de Sistemas Orientados a Dispositivos móveis e Baseados na Web
 
-## Reciclabairro
+## ReciclaBairro
 
 ### Passo a passo de como acessar o site
 

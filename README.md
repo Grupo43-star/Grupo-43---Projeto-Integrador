@@ -1,4 +1,4 @@
-# Grupo-43---Projeto-Integrador
+# Grupo-43---Projeto Integrador: Desenvolvimento de Sistemas Orientados a Dispositivos móveis e Baseados na Web
 ## Olá, esse é o nosso repositório
 
 ### Responsáveis nas respectivas categorias:

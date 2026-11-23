@@ -26,8 +26,8 @@ http://localhost:5173/
 
 ---
 
-## Responsáveis nas respectivas categorias
+## Divisão de Tarefas
 
 - **Front-End:** João Pedro, Luis Gustavo, Hicaro
-- **Backend:** Luciene, João Marcelo, Gustavo
-- **Banco de Dados + Vídeo e Repositório:** Igor e Rafael
+- **Backend:** Luciene Querino, João Marcelo, Gustavo Timbó
+- **Banco de Dados + Vídeo e Repositório:** Igor e Rafael Anholeti
